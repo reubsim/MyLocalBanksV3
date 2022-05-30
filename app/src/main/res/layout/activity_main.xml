@@ -7,27 +7,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dbs" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/ocbc" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/uob" />
-
     <Button
         android:id="@+id/buttonDBS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/dbs"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -35,6 +19,7 @@
         android:id="@+id/buttonOCBC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/ocbc"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
@@ -42,6 +27,7 @@
         android:id="@+id/buttonUOB"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/uob"
         tools:ignore="DuplicateSpeakableTextCheck" />
 

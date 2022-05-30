@@ -21,6 +21,12 @@ public class MainActivity extends AppCompatActivity {
     Button btUOB;
 
     String wordClicked = "";
+
+    boolean favBank;
+    boolean favDBS = false;
+    boolean favOCBC = false;
+    boolean favUOB = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
             btUOB.setText("UOB");
             return true;
         } else if (id == R.id.ChineseSelection) {
-            btDBS.setText("chingchongDBS");
-            btOCBC.setText("chingchongOCBC");
-            btUOB.setText("chingchongUOB");
+            btDBS.setText("星展银行");
+            btOCBC.setText("华侨银行");
+            btUOB.setText("大华银行");
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -72,13 +78,28 @@ public class MainActivity extends AppCompatActivity {
             wordClicked = "uob";
         }
 
+        if(v == btDBS) {
+            favBank = favDBS;
+        } else if (v == btOCBC) {
+            favBank = favOCBC;
+        } else if (v == btUOB) {
+            favBank = favUOB;
+        }
+
         menu.add(0,0,0,"Website");
         menu.add(0,1,1,"Contact");
-        menu.add(0,2,2,"Favourite");
+
+        if (favBank == false) {
+            menu.add(0, 2, 2, "Favourite");
+        } else {
+            menu.add(0, 2, 2, "Unfavourite");
+        }
     }
 
     public boolean onContextItemSelected(MenuItem item) {
+
         if (wordClicked.equalsIgnoreCase("dbs")) {
+
             if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
                 //code for action
                 Toast.makeText(MainActivity.this, "Redirect to Bank's Website", Toast.LENGTH_SHORT).show();
@@ -93,11 +114,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentCall);
 
                 return true;  //menu item successfully handled
+
             } else if (item.getItemId() == 2) {
-                Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
-                btDBS.setTextColor(Color.RED);
+
+                if (favDBS == false) {
+                    Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
+                    btDBS.setTextColor(Color.RED);
+                    favDBS = true;
+                    return true;
+
+                } else if (favDBS) {
+                    Toast.makeText(MainActivity.this, "Removed from favourites", Toast.LENGTH_SHORT).show();
+                    btDBS.setTextColor(Color.WHITE);
+                    favDBS = false;
+                    return true;
+                }
 
             }
+
         } else if (wordClicked.equalsIgnoreCase("ocbc")) {
             if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
                 //code for action
@@ -111,13 +145,25 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Dialling Bank", Toast.LENGTH_SHORT).show();
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+180036333));
                 startActivity(intentCall);
-
                 return true;  //menu item successfully handled
-            } else if (item.getItemId() == 2) {
-                Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
-                btDBS.setTextColor(Color.RED);
 
+            } else if (item.getItemId() == 2) {
+
+                if (favOCBC == false) {
+                    Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
+                    btOCBC.setTextColor(Color.RED);
+                    favOCBC = true;
+                    return true;
+
+                } else if (favOCBC) {
+                    Toast.makeText(MainActivity.this, "Removed from favourites", Toast.LENGTH_SHORT).show();
+                    btOCBC.setTextColor(Color.WHITE);
+                    favOCBC = false;
+                    return true;
+
+                }
             }
+
         }else if (wordClicked.equalsIgnoreCase("uob")) {
             if (item.getItemId() == 0) { //check whether the selected menu item ID is 0
                 //code for action
@@ -131,11 +177,22 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Dialling Bank", Toast.LENGTH_SHORT).show();
                 Intent intentCall = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+180022221));
                 startActivity(intentCall);
-
                 return true;  //menu item successfully handled
+
             } else if (item.getItemId() == 2) {
-                Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
-                btDBS.setTextColor(Color.RED);
+
+                if (favUOB == false) {
+                    Toast.makeText(MainActivity.this, "Added to favourites", Toast.LENGTH_SHORT).show();
+                    btUOB.setTextColor(Color.RED);
+                    favUOB = true;
+                    return true;
+
+                } else if (favUOB) {
+                    Toast.makeText(MainActivity.this, "Removed from favourites", Toast.LENGTH_SHORT).show();
+                    btUOB.setTextColor(Color.WHITE);
+                    favUOB = false;
+                    return true;
+                }
 
             }
         }
