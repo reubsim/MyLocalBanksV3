@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dbs" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ocbc" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/uob" />
+
+    <Button
+        android:id="@+id/buttonDBS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dbs"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/buttonOCBC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ocbc"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/buttonUOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/uob"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+</LinearLayout>
